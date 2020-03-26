@@ -1,5 +1,5 @@
 HELP.md
-Main.java
+com/example/rickmorty/Main.java
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
@@ -30,3 +30,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/com/example/rickmorty/Main.java
