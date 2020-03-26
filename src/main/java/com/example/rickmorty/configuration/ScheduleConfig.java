@@ -37,7 +37,8 @@ public class ScheduleConfig {
         List<RickMortyCharacter> list = rickMortyCharacterRepository.findAll();
         try {
             Integer charactersInCurrentDb = rickMortyCharacterRepository.countAllCharacters();
-            Integer charactersInApi = jsonParser.getQuantityOfCharacters(httpConnection.sendGet(url));
+            Integer charactersInApi = jsonParser.getQuantityOfCharacters(
+                    httpConnection.sendGet(url));
             if (!charactersInApi.equals(charactersInCurrentDb)) {
                 int pages = jsonParser.getNumberOfPages(httpConnection.sendGet(url));
                 List<RickMortyCharacter> result = new ArrayList<>();
