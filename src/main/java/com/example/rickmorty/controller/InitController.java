@@ -5,10 +5,10 @@ import com.example.rickmorty.model.RickMortyCharacter;
 import com.example.rickmorty.repository.RickMortyCharacterRepository;
 import com.example.rickmorty.util.HttpConnection;
 import com.example.rickmorty.util.JsonParser;
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +18,11 @@ public class InitController {
     private final JsonParser jsonParser;
     private final RickMortyCharacterRepository rickMortyCharacterRepository;
 
+    @Value("${rickmorty.url}")
+    private String url;
+    @Value("${rickmorty.page.url}")
+    private String pageUrl;
+
     public InitController(HttpConnection httpConnection,
                           JsonParser jsonParser,
                           RickMortyCharacterRepository rickMortyCharacterRepository) {
@@ -25,11 +30,6 @@ public class InitController {
         this.jsonParser = jsonParser;
         this.rickMortyCharacterRepository = rickMortyCharacterRepository;
     }
-
-    @Value("${rickmorty.url}")
-    private String url;
-    @Value("${rickmorty.page.url}")
-    private String pageUrl;
 
     @PostConstruct
     private void postConstruct() {

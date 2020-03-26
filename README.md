@@ -15,3 +15,14 @@ https://rickandmortyapi.com/documentation/#get%C2%ADall%C2%ADcharacters
 2) Cron job ­ для реализации синхронизации данных с Rick & Morty api. 
 3) Java/Kotlin, Tomcat, Spring Boot, Hibernate, PostgresQL; Jetbrains IDE, Git; 
 4) Запросы должны быть задокументированы с использованием Swagger.
+
+Доступ к swagger:
+http://localhost:8081/swagger-ui.html
+
+Пример запроса для получения рандомного персонажа:
+http://localhost:8081/rickmorty/random
+
+Пример запроса для получения персонажа, по парметру, который может встречаться в имени персонажа:
+http://localhost:8081/rickmorty/characters?name=слово_для_поиска
+
+Например: http://localhost:8081/rickmorty/characters?name=Rick
