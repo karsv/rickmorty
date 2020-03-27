@@ -2,7 +2,7 @@ package com.example.rickmorty.controller;
 
 import com.example.rickmorty.exceptions.HttpDataException;
 import com.example.rickmorty.model.RickMortyCharacter;
-import com.example.rickmorty.model.RickMortyCharacterResponseDto;
+import com.example.rickmorty.model.RickMortyCharacterNamesResponseDto;
 import com.example.rickmorty.repository.RickMortyCharacterRepository;
 import com.example.rickmorty.util.HttpConnection;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +33,7 @@ public class RickMortyController {
     }
 
     @GetMapping("/characters")
-    public List<RickMortyCharacterResponseDto> getCharactersNamesByRegExp(
+    public List<RickMortyCharacterNamesResponseDto> getCharactersNamesByRegExp(
             @RequestParam String name) {
         StringBuilder searchPattern = new StringBuilder();
         searchPattern.append("%").append(name).append("%");
@@ -41,7 +41,7 @@ public class RickMortyController {
                 .findByNameLike(searchPattern.toString());
         return list.stream()
                 .map(c -> {
-                    RickMortyCharacterResponseDto rm = new RickMortyCharacterResponseDto();
+                    RickMortyCharacterNamesResponseDto rm = new RickMortyCharacterNamesResponseDto();
                     rm.setName(c.getName());
                     return rm;
                 })
