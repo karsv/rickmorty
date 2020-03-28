@@ -21,17 +21,21 @@ public class RickMortyCharacter {
     private String species;
     private String type;
     private String gender;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Location origin;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Location location;
     private String image;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Episode> episode = new HashSet<>();
+
     private String url;
     private String created;
 
-    public void addEpisode(Episode episode){
+    public void addEpisode(Episode episode) {
         this.episode.add(episode);
     }
 }

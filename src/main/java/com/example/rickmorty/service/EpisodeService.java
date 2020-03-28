@@ -3,5 +3,7 @@ package com.example.rickmorty.service;
 import com.example.rickmorty.model.Episode;
 
 public interface EpisodeService {
-    void save(Episode episode);
+    Episode save(Episode episode);
+
+    Iterable<Episode> saveAll(Iterable<Episode> episodes);
 }

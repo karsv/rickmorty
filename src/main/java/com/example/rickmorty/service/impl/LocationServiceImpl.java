@@ -12,7 +12,10 @@ public class LocationServiceImpl implements LocationService {
     private LocationRepository locationRepository;
 
     @Override
-    public void save(Location location) {
-        locationRepository.save(location);
+    public Location save(Location location) {
+        if (!locationRepository.existsByUrl(location.getUrl())) {
+            return locationRepository.save(location);
+        }
+        return locationRepository.findByUrl(location.getUrl());
     }
 }
